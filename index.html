@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Campus Navigation System | Minor Project Presentation | GHRCE Nagpur</title>
+    <meta name="description" content="College Minor Project Presentation for Smart Campus Navigation System - Department of Computer Science and Engineering, G H Raisoni College of Engineering, Nagpur.">
+    <!-- High-end Typography: Outfit for editorial headers + Plus Jakarta Sans for crisp body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- Top Announcement / Academic Bar (Compact Single-Line) -->
+    <div class="top-banner">
+        <div class="container banner-flex">
+            <div class="banner-left">
+                <span class="badge-pill">GHRCE Autonomous</span>
+                <span class="banner-text">NAAC 'A+' Grade &bull; NBA Accredited</span>
+            </div>
+            <div class="banner-right">
+                <span class="session-tag">Session 2026-2027 (Winter 2026)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#home" class="brand-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                        <line x1="9" y1="3" x2="9" y2="18"></line>
+                        <line x1="15" y1="6" x2="15" y2="21"></line>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">SmartCampus</span>
+                    <span class="brand-sub">Group 06 &bull; CSE</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#abstract" class="nav-link">Abstract</a>
+                <a href="#description" class="nav-link">Scope</a>
+                <a href="#problem-gap" class="nav-link">Problem</a>
+                <a href="#methodology" class="nav-link">Methodology</a>
+                <a href="#modules" class="nav-link">Modules</a>
+                <a href="#demo-preview" class="nav-link nav-item-optional">Demo</a>
+                <a href="#techstack" class="nav-link nav-item-optional">Tech Stack</a>
+                <a href="#literature" class="nav-link">Literature</a>
+                <a href="#conclusion" class="nav-link">Conclusion</a>
+                <a href="#references" class="nav-link nav-item-optional">References</a>
+
+                <!-- "More ▾" Dropdown for Medium Screens (1024px - 1280px) -->
+                <div class="nav-dropdown" id="navDropdown">
+                    <button class="nav-link nav-dropdown-btn" id="navDropdownBtn" aria-haspopup="true" aria-expanded="false" type="button">
+                        <span>More</span>
+                        <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu" id="navDropdownMenu">
+                        <a href="#demo-preview" class="dropdown-item">Demo Simulator</a>
+                        <a href="#techstack" class="dropdown-item">Tech Stack</a>
+                        <a href="#references" class="dropdown-item">References</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="nav-actions">
+                <button onclick="window.print()" class="btn-icon" title="Print Project Report" aria-label="Print Report">
+                    <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                </button>
+                <button id="themeToggle" class="btn-icon" title="Toggle Theme" aria-label="Toggle Theme">
+                    <svg id="moonIcon" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sunIcon" class="hidden" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Open Navigation Menu">
+                    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HOME / TITLE SECTION -->
+        <section id="home" class="section hero-section">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="grid-overlay"></div>
+            </div>
+
+            <div class="container hero-container">
+                <!-- Academic Header Card -->
+                <div class="college-header-card">
+                    <div class="college-crest">
+                        <div class="crest-circle">
+                            <span>GHRCE</span>
+                        </div>
+                    </div>
+                    <div class="college-title-block">
+                        <h3 class="college-name">G H Raisoni College of Engineering, Nagpur</h3>
+                        <p class="college-sub">An Autonomous Institute Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University</p>
+                        <p class="dept-name">Department of Computer Science and Engineering</p>
+                    </div>
+                </div>
+
+                <div class="project-hero-content">
+                    <div class="project-tag-wrap">
+                        <span class="tag-badge">Minor Project Presentation</span>
+                        <span class="tag-badge-accent">Group No. 06</span>
+                        <span class="tag-badge-date">Date: August 5, 2026 (05/08/2026)</span>
+                    </div>
+
+                    <h1 class="project-main-title">
+                        Smart Campus <span class="gradient-text">Navigation System</span>
+                    </h1>
+                    <p class="hero-tagline">
+                        An intelligent, interactive digital mapping and real-time indoor-outdoor route optimization platform tailored for students, faculty, staff, and visitors.
+                    </p>
+
+                    <!-- Meta Grid (Team & Guide) -->
+                    <div class="meta-card-grid">
+                        <!-- Team Members -->
+                        <div class="meta-card team-card">
+                            <div class="meta-card-header">
+                                <div class="meta-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <h4>Project Team (Group 06)</h4>
+                            </div>
+                            <div class="meta-card-body">
+                                <ul class="team-list">
+                                    <li>
+                                        <span class="member-avatar">RB</span>
+                                        <div class="member-info">
+                                            <strong>Riya Bhele</strong>
+                                            <span class="roll-badge">Roll No: B-08</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="member-avatar">SS</span>
+                                        <div class="member-info">
+                                            <strong>Shifa Sheikh</strong>
+                                            <span class="roll-badge">Roll No: B-15</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="member-avatar">ST</span>
+                                        <div class="member-info">
+                                            <strong>Shreya Thakare</strong>
+                                            <span class="roll-badge">Roll No: B-19</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Project Guide -->
+                        <div class="meta-card guide-card">
+                            <div class="meta-card-header">
+                                <div class="meta-icon guide-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                                    </svg>
+                                </div>
+                                <h4>Under the Guidance of</h4>
+                            </div>
+                            <div class="meta-card-body guide-body">
+                                <div class="guide-profile">
+                                    <div class="guide-avatar">
+                                        <span>AS</span>
+                                    </div>
+                                    <div class="guide-details">
+                                        <h5 class="guide-name">Prof. Apeksha Sakhare</h5>
+                                        <p class="guide-designation">Assistant Professor</p>
+                                        <p class="guide-dept">Department of Computer Science and Engineering</p>
+                                        <p class="guide-inst">G H Raisoni College of Engineering, Nagpur</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Action Links -->
+                    <div class="hero-cta-row">
+                        <a href="#abstract" class="btn btn-primary">
+                            <span>Explore Project Report</span>
+                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#demo-preview" class="btn btn-secondary">
+                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            <span>Interactive Map Simulation</span>
+                        </a>
+                        <a href="#methodology" class="btn btn-outline">
+                            <span>System Architecture</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABSTRACT SECTION -->
+        <section id="abstract" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 01</span>
+                    <h2 class="section-title">Abstract</h2>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="abstract-wrapper">
+                    <div class="abstract-paper">
+                        <div class="paper-watermark">GHRCE</div>
+                        <div class="paper-header">
+                            <span class="paper-label">EXECUTIVE SUMMARY</span>
+                            <div class="paper-meta">Confidential Academic Submission &bull; Winter 2026</div>
+                        </div>
+                        <p class="abstract-text">
+                            A <strong>Smart Campus Navigation System</strong> is an intelligent solution designed to help students, faculty, staff, and visitors navigate a college or university campus efficiently. Large campuses often make it difficult for users to locate classrooms, laboratories, offices, libraries, parking areas, and event venues. This system provides real-time, interactive navigation using digital maps and GPS/Wi-Fi-based positioning to guide users to their desired destinations through the shortest and most accessible routes.
+                        </p>
+                        <p class="abstract-text">
+                            The system integrates features such as <strong>building search, room locator, event navigation, accessibility-friendly routing, emergency assistance, and live updates about roadblocks or construction</strong>. It can also recommend nearby facilities such as cafeterias, ATMs, restrooms, and parking spaces. By incorporating AI-based route optimization and personalized recommendations, the platform enhances user convenience and reduces travel time within the campus.
+                        </p>
+
+                        <!-- Keywords & Highlights -->
+                        <div class="abstract-highlights">
+                            <div class="highlight-item">
+                                <div class="hl-icon">📍</div>
+                                <div class="hl-text">
+                                    <strong>Indoor & Outdoor Navigation</strong>
+                                    <span>Seamless transition between campus grounds & multi-floor buildings</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="hl-icon">⚡</div>
+                                <div class="hl-text">
+                                    <strong>Real-Time Route Optimization</strong>
+                                    <span>Shortest path algorithms (Dijkstra/A*) factoring roadblock updates</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="hl-icon">♿</div>
+                                <div class="hl-text">
+                                    <strong>Accessibility First</strong>
+                                    <span>Wheelchair-friendly routes with ramps and elevator prioritizing</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="hl-icon">🔍</div>
+                                <div class="hl-text">
+                                    <strong>Universal Search & POI</strong>
+                                    <span>Quick search for departments, labs, faculty cabins, and facilities</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="keywords-box">
+                            <strong>Keywords:</strong> Smart Campus, Indoor Navigation, GIS, Route Optimization, Dijkstra Algorithm, Campus Facility Locator, Responsive Web GIS, GHRCE Nagpur.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PROJECT DESCRIPTION (Objectives, Scope, Benefits) -->
+        <section id="description" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 02</span>
+                    <h2 class="section-title">Project Description</h2>
+                    <p class="section-desc">Comprehensive breakdown of core objectives, operational scope, and key deliverables.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="tri-grid">
+                    <!-- Objectives Card -->
+                    <div class="feature-card">
+                        <div class="card-icon-pill icon-blue">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Project Objectives</h3>
+                        <p class="card-intro">Core goals targeted during the development of this intelligent campus system:</p>
+                        <ul class="bullet-list">
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span><strong>Intelligent Navigation:</strong> Develop an intuitive, smart navigation platform for the entire campus layout.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span><strong>Shortest Route Calculation:</strong> Provide real-time location tracking and algorithmic shortest path computation.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span><strong>Enhanced Accessibility:</strong> Empower users with accessible routes, ramps, and elevator-assisted pathways.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span><strong>Smart Tech Integration:</strong> Integrate GIS mapping, Wi-Fi positioning, and modern web interfaces.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span><strong>Dependency Reduction:</strong> Eliminate time wasted asking for directions and manual guide dependency.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Scope Card -->
+                    <div class="feature-card">
+                        <div class="card-icon-pill icon-orange">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">System Scope</h3>
+                        <p class="card-intro">Coverage boundaries and operational touchpoints across the institution:</p>
+                        <ul class="bullet-list">
+                            <li>
+                                <span class="bullet-dot orange"></span>
+                                <span><strong>Interactive Campus Map:</strong> Fully rendered 2D/3D responsive digital vector map of all blocks.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot orange"></span>
+                                <span><strong>Smart Search Directory:</strong> Fast search indexing for classrooms, labs, admin cabins, and amenities.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot orange"></span>
+                                <span><strong>Turn-by-Turn Route Guidance:</strong> Clear origin-to-destination vector path rendering with step instructions.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot orange"></span>
+                                <span><strong>Building & Facility Catalog:</strong> Detailed profiles of departments, faculty cabin numbers, timings, and facilities.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot orange"></span>
+                                <span><strong>Cross-Platform Responsiveness:</strong> Smooth execution on mobile phones, tablets, kiosks, and desktops.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot orange"></span>
+                                <span><strong>Visitor & Fresher Onboarding:</strong> Zero-training guidance for guests, parents, evaluators, and new students.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Benefits Card -->
+                    <div class="feature-card">
+                        <div class="card-icon-pill icon-green">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Key Benefits</h3>
+                        <p class="card-intro">Measurable value delivered to students, visitors, faculty, and administration:</p>
+                        <ul class="bullet-list">
+                            <li>
+                                <span class="bullet-dot green"></span>
+                                <span><strong>Instant Room Finding:</strong> Locate specific lecture halls, tutorial rooms, and lab numbers in seconds.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot green"></span>
+                                <span><strong>Substantial Time Savings:</strong> Reduces campus transit search time by over 70% during peak hours.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot green"></span>
+                                <span><strong>Decreased Confusion:</strong> Eliminates wandering and getting lost during examination and event days.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot green"></span>
+                                <span><strong>Frictionless Web Access:</strong> Works directly in any mobile web browser without requiring mandatory heavy app installs.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot green"></span>
+                                <span><strong>Streamlined Administration:</strong> College administrators can dynamically update room allocations and routes.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PROBLEM STATEMENT & GAP ANALYSIS -->
+        <section id="problem-gap" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 03</span>
+                    <h2 class="section-title">Problem Statement & Gap Analysis</h2>
+                    <p class="section-desc">Identifying the limitations of traditional campus wayfinding and bridging technological deficiencies.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="dual-column-grid">
+                    <!-- Problem Statement -->
+                    <div class="glass-panel problem-panel">
+                        <div class="panel-header">
+                            <div class="panel-icon icon-danger">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="panel-title">Problem Statement</h3>
+                                <span class="panel-tag">Current Campus Wayfinding Challenges</span>
+                            </div>
+                        </div>
+
+                        <div class="problem-items">
+                            <div class="prob-card">
+                                <div class="prob-num">01</div>
+                                <div class="prob-content">
+                                    <h4>Difficulty Locating Venues</h4>
+                                    <p>Complex multi-building layout makes it challenging to locate specific classrooms, faculty cabins, seminar halls, and departmental labs.</p>
+                                </div>
+                            </div>
+                            <div class="prob-card">
+                                <div class="prob-num">02</div>
+                                <div class="prob-content">
+                                    <h4>Time Wasted in Navigation</h4>
+                                    <p>Students and faculty lose productive time searching for halls during exams, lab sessions, meetings, and cross-departmental events.</p>
+                                </div>
+                            </div>
+                            <div class="prob-card">
+                                <div class="prob-num">03</div>
+                                <div class="prob-content">
+                                    <h4>Static Signboard Inefficacy</h4>
+                                    <p>Physical signboards are static, outdated when room re-allocations occur, and lack directional context from the user's exact current viewpoint.</p>
+                                </div>
+                            </div>
+                            <div class="prob-card">
+                                <div class="prob-num">04</div>
+                                <div class="prob-content">
+                                    <h4>Absence of Real-Time Route Optimization</h4>
+                                    <p>Standard outdoor GPS platforms (e.g., standard Google Maps) fail inside buildings, under covered walkways, or across specialized pedestrian corridors.</p>
+                                </div>
+                            </div>
+                            <div class="prob-card">
+                                <div class="prob-num">05</div>
+                                <div class="prob-content">
+                                    <h4>Accessibility Roadblocks</h4>
+                                    <p>Differently-abled individuals struggle to find wheelchair-accessible corridors, operating elevators, and ramp entries without prior assistance.</p>
+                                </div>
+                            </div>
+                            <div class="prob-card">
+                                <div class="prob-num">06</div>
+                                <div class="prob-content">
+                                    <h4>Poor Visitor Experience</h4>
+                                    <p>Parents, guest lecturers, placement recruiters, and inspection teams experience high friction navigating without personal escorts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gap Analysis -->
+                    <div class="glass-panel gap-panel">
+                        <div class="panel-header">
+                            <div class="panel-icon icon-info">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="panel-title">Gap Analysis</h3>
+                                <span class="panel-tag">Existing Systems vs. Our Proposed System</span>
+                            </div>
+                        </div>
+
+                        <div class="gap-table-wrapper">
+                            <table class="styled-table gap-table">
+                                <thead>
+                                    <tr>
+                                        <th>Identified Industry Gap</th>
+                                        <th>Traditional Scenario</th>
+                                        <th>Our Proposed Solution</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Indoor Positioning</strong></td>
+                                        <td>Outdoor GPS only; signals attenuate significantly indoors with huge accuracy drift.</td>
+                                        <td><span class="badge-success">Wi-Fi / Beacon triangulation + Floorplan level graph indexing</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Campus GIS Database</strong></td>
+                                        <td>Scattered PDF map copies, physical wooden boards, outdated floor blueprints.</td>
+                                        <td><span class="badge-success">Centralized, queryable GeoJSON campus topology database</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IoT & Sensor Integration</strong></td>
+                                        <td>Zero integration with campus smart hardware or real-time event status.</td>
+                                        <td><span class="badge-success">Dynamic roadblock / maintenance sensor reporting & alerts</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cloud Synchronization</strong></td>
+                                        <td>Manual printing required for any administrative room or timetable change.</td>
+                                        <td><span class="badge-success">Real-time cloud updates managed via intuitive Admin Portal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Route Optimization</strong></td>
+                                        <td>Users follow guesswork or circuitous outdoor paths.</td>
+                                        <td><span class="badge-success">Dijkstra & A* algorithms tailored for stairs, lifts & walkways</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Summary Callout -->
+                        <div class="gap-summary-callout">
+                            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 14 14"></polyline>
+                            </svg>
+                            <p><strong>Core Takeaway:</strong> Our system bridges the critical gap between macro outdoor road mapping and micro-level campus indoor navigation with high responsiveness and accessibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. METHODOLOGY (FLOWCHART & ARCHITECTURE) -->
+        <section id="methodology" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 04</span>
+                    <h2 class="section-title">System Methodology & Workflow</h2>
+                    <p class="section-desc">Algorithmic execution pipeline, data flow architecture, and real-time path calculation loop.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <!-- Interactive Flowchart Diagram Box -->
+                <div class="flowchart-container">
+                    <div class="flowchart-header">
+                        <h4>System Execution Flowchart</h4>
+                        <span class="flowchart-badge">Interactive Process Pipeline</span>
+                    </div>
+
+                    <div class="flowchart-grid">
+                        <!-- Step 1 -->
+                        <div class="flow-node flow-user" id="node1">
+                            <div class="node-badge">Step 1</div>
+                            <div class="node-icon">👤</div>
+                            <div class="node-title">Campus User</div>
+                            <div class="node-desc">Student / Faculty / Visitor / Staff</div>
+                        </div>
+
+                        <div class="flow-arrow">
+                            <div class="arrow-line"></div>
+                            <span class="arrow-label">Interacts with</span>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flow-node" id="node2">
+                            <div class="node-badge">Step 2</div>
+                            <div class="node-icon">📱</div>
+                            <div class="node-title">Mobile App / Web UI</div>
+                            <div class="node-desc">Select destination, search room, view campus map</div>
+                        </div>
+
+                        <div class="flow-arrow">
+                            <div class="arrow-line"></div>
+                            <span class="arrow-label">Sends Query</span>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flow-node highlight-node" id="node3">
+                            <div class="node-badge">Step 3</div>
+                            <div class="node-icon">🛰️</div>
+                            <div class="node-title">Current Location Detection</div>
+                            <div class="node-desc">GPS / Wi-Fi Access Point / Manual Node Selection</div>
+                        </div>
+
+                        <div class="flow-arrow">
+                            <div class="arrow-line"></div>
+                            <span class="arrow-label">Node Coordinates</span>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flow-node algo-node" id="node4">
+                            <div class="node-badge">Step 4</div>
+                            <div class="node-icon">⚙️</div>
+                            <div class="node-title">Navigation Algorithm</div>
+                            <div class="node-desc">Computes shortest path (Dijkstra / A* Graph Engine)</div>
+                        </div>
+
+                        <div class="flow-arrow">
+                            <div class="arrow-line"></div>
+                            <span class="arrow-label">Queries Graph</span>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="flow-node db-node" id="node5">
+                            <div class="node-badge">Step 5</div>
+                            <div class="node-icon">🗄️</div>
+                            <div class="node-title">Campus GIS Database</div>
+                            <div class="node-desc">Walkways, stairs, elevators, blocks, rooms & nodes</div>
+                        </div>
+
+                        <div class="flow-arrow">
+                            <div class="arrow-line"></div>
+                            <span class="arrow-label">Returns Path Vector</span>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="flow-node" id="node6">
+                            <div class="node-badge">Step 6</div>
+                            <div class="node-icon">🗺️</div>
+                            <div class="node-title">Best Route Display</div>
+                            <div class="node-desc">Turn-by-turn guidance with ETA & floor indicators</div>
+                        </div>
+
+                        <div class="flow-arrow">
+                            <div class="arrow-line"></div>
+                            <span class="arrow-label">User Follows</span>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="flow-node finish-node" id="node7">
+                            <div class="node-badge">Step 7</div>
+                            <div class="node-icon">🏁</div>
+                            <div class="node-title">Destination Reached</div>
+                            <div class="node-desc">User safely arrives at desired classroom/office</div>
+                        </div>
+                    </div>
+
+                    <!-- Deviation Feedback Loop Card -->
+                    <div class="feedback-loop-banner">
+                        <div class="feedback-loop-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 4 23 10 17 10"></polyline>
+                                <polyline points="1 20 1 14 7 14"></polyline>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                            </svg>
+                        </div>
+                        <div class="feedback-loop-text">
+                            <strong>Dynamic Re-Routing Feedback Loop:</strong>
+                            <p>Continuous location monitoring tracks user progress. If the user deviates from the suggested route or encounters temporary roadblocks/construction, the system immediately feeds back to <em>Step 3 (Location Detection)</em> to dynamically recalculate the alternative optimal path.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Methodology Pillars Breakdown -->
+                <div class="methodology-steps-grid">
+                    <div class="method-card">
+                        <div class="m-step-num">01</div>
+                        <h4>Map Digitization & Node Graph</h4>
+                        <p>Converting architectural CAD layouts of GHRCE buildings into structured topological graphs containing nodes (junctions, doors, stairs) and weighted edges (corridor distance).</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="m-step-num">02</div>
+                        <h4>Positioning & Hybrid Localization</h4>
+                        <p>Combining outdoor GPS coordinates with indoor Wi-Fi SSID signal triangulation and landmark checkpoints to maintain uninterrupted location continuity.</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="m-step-num">03</div>
+                        <h4>Shortest Path Engine</h4>
+                        <p>Leveraging Dijkstra's and modified A* heuristic search to compute the lowest-cost path while adhering to user preferences (e.g., stairs vs. wheelchair elevator access).</p>
+                    </div>
+                    <div class="method-card">
+                        <div class="m-step-num">04</div>
+                        <h4>Vector Rendering & UX Interface</h4>
+                        <p>Delivering high-frame-rate, vector-based visual guidance overlayed on interactive Leaflet maps with dynamic orientation and voice-ready text prompts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. MODULE DESCRIPTION -->
+        <section id="modules" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 05</span>
+                    <h2 class="section-title">System Module Description</h2>
+                    <p class="section-desc">Modular architecture breakdown consisting of 9 specialized functional components.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <!-- Search/Filter modules -->
+                <div class="module-search-wrap">
+                    <div class="search-input-box">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="moduleFilterInput" placeholder="Filter modules (e.g., GPS, Admin, Route, Map)..." aria-label="Filter modules">
+                    </div>
+                    <span class="module-count-badge" id="moduleCountText">Showing 9 of 9 Modules</span>
+                </div>
+
+                <div class="modules-grid" id="modulesContainer">
+                    <!-- Module 1 -->
+                    <div class="module-card" data-title="User Registration & Login Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-01</span>
+                            <div class="mod-icon">🔐</div>
+                        </div>
+                        <h3 class="mod-title">User Registration & Login Module</h3>
+                        <p class="mod-desc">Manages secure authentication for students, faculty, and administrators with role-based dashboard access, profile customization, and saved favorite campus routes.</p>
+                        <div class="mod-tags">
+                            <span>Role-Based Access</span>
+                            <span>Profile Security</span>
+                            <span>JWT / Auth</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 -->
+                    <div class="module-card" data-title="Campus Map Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-02</span>
+                            <div class="mod-icon">🗺️</div>
+                        </div>
+                        <h3 class="mod-title">Campus Map Module</h3>
+                        <p class="mod-desc">Renders an interactive, layered vector digital map of all campus buildings, pedestrian walkways, multi-floor plans, parking zones, and key institution landmarks.</p>
+                        <div class="mod-tags">
+                            <span>Interactive Canvas</span>
+                            <span>Multi-Floor View</span>
+                            <span>Vector Tiles</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 3 -->
+                    <div class="module-card" data-title="Location Search Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-03</span>
+                            <div class="mod-icon">🔍</div>
+                        </div>
+                        <h3 class="mod-title">Location Search Module</h3>
+                        <p class="mod-desc">Provides smart keyword and category-based auto-complete search to instantly pinpoint classrooms, labs, seminar halls, department offices, ATMs, and cafeterias.</p>
+                        <div class="mod-tags">
+                            <span>Auto-Complete</span>
+                            <span>POI Categorization</span>
+                            <span>Instant Indexing</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 4 -->
+                    <div class="module-card" data-title="Route Navigation Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-04</span>
+                            <div class="mod-icon">🧭</div>
+                        </div>
+                        <h3 class="mod-title">Route Navigation Module</h3>
+                        <p class="mod-desc">Calculates and visually renders the shortest and most accessible walking path from the user's starting point to their selected destination with turn-by-turn prompts.</p>
+                        <div class="mod-tags">
+                            <span>Dijkstra Engine</span>
+                            <span>Step Guidance</span>
+                            <span>Accessibility Filter</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 5 -->
+                    <div class="module-card" data-title="GPS / Location Tracking Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-05</span>
+                            <div class="mod-icon">📍</div>
+                        </div>
+                        <h3 class="mod-title">GPS & Location Tracking Module</h3>
+                        <p class="mod-desc">Detects user location in real-time utilizing device GPS geolocation outdoors and Wi-Fi/landmark triangulation when navigating within complex indoor buildings.</p>
+                        <div class="mod-tags">
+                            <span>Geolocation API</span>
+                            <span>Indoor Hybrid</span>
+                            <span>Live Beaconing</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 6 -->
+                    <div class="module-card" data-title="Department & Facility Information Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-06</span>
+                            <div class="mod-icon">🏛️</div>
+                        </div>
+                        <h3 class="mod-title">Department & Facility Info Module</h3>
+                        <p class="mod-desc">Offers comprehensive directory details for academic departments, faculty cabin allocations, operating hours, emergency facilities, and student amenity centers.</p>
+                        <div class="mod-tags">
+                            <span>Directory Catalog</span>
+                            <span>Faculty Contact</span>
+                            <span>Amenity Details</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 7 -->
+                    <div class="module-card" data-title="Admin Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-07</span>
+                            <div class="mod-icon">🛠️</div>
+                        </div>
+                        <h3 class="mod-title">Admin Management Module</h3>
+                        <p class="mod-desc">Enables authorized institution administrators to update campus layouts, add new rooms, modify walkway nodes, manage event locations, and oversee system analytics.</p>
+                        <div class="mod-tags">
+                            <span>Campus CMS</span>
+                            <span>Node Editor</span>
+                            <span>Analytics Log</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 8 -->
+                    <div class="module-card" data-title="Notification & Alert Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-08</span>
+                            <div class="mod-icon">🔔</div>
+                        </div>
+                        <h3 class="mod-title">Notification & Alert Module</h3>
+                        <p class="mod-desc">Broadcasts real-time campus announcements, event venue alerts, maintenance updates, construction roadblocks, and emergency evacuation navigation instructions.</p>
+                        <div class="mod-tags">
+                            <span>Push Alerts</span>
+                            <span>Roadblock Warnings</span>
+                            <span>Emergency Protocols</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 9 -->
+                    <div class="module-card" data-title="Feedback Module">
+                        <div class="module-card-top">
+                            <span class="mod-num">M-09</span>
+                            <div class="mod-icon">💬</div>
+                        </div>
+                        <h3 class="mod-title">User Feedback & Reporting Module</h3>
+                        <p class="mod-desc">Allows students and visitors to submit reviews, report map discrepancies, rate navigation accuracy, and suggest improvements for continuous campus enhancement.</p>
+                        <div class="mod-tags">
+                            <span>User Rating</span>
+                            <span>Issue Reporting</span>
+                            <span>Quality Assurance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE MOCKUP SECTION (DEMO / SIMULATION) -->
+        <section id="demo-preview" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Demonstration</span>
+                    <h2 class="section-title">Interactive Campus Route Simulator</h2>
+                    <p class="section-desc">Test simulated smart route calculations between representative buildings at GHRCE Nagpur.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="simulator-wrapper">
+                    <!-- Simulator Controls -->
+                    <div class="sim-controls-card">
+                        <h4 class="sim-title">Select Origin & Destination</h4>
+                        <div class="sim-form-group">
+                            <label for="startNodeSelect"><strong>Start Location (From):</strong></label>
+                            <select id="startNodeSelect" class="form-select">
+                                <option value="gate">Main Campus Entrance (Gate 1)</option>
+                                <option value="admin">Admin & Dean Office Block</option>
+                                <option value="cse" selected>CSE Department (Block B)</option>
+                                <option value="library">Central Library & Reading Hall</option>
+                                <option value="canteen">Campus Cafeteria & Food Court</option>
+                                <option value="auditorium">Shradha Auditorium</option>
+                            </select>
+                        </div>
+
+                        <div class="sim-form-group">
+                            <label for="endNodeSelect"><strong>Destination (To):</strong></label>
+                            <select id="endNodeSelect" class="form-select">
+                                <option value="gate">Main Campus Entrance (Gate 1)</option>
+                                <option value="admin">Admin & Dean Office Block</option>
+                                <option value="cse">CSE Department (Block B)</option>
+                                <option value="library" selected>Central Library & Reading Hall</option>
+                                <option value="canteen">Campus Cafeteria & Food Court</option>
+                                <option value="auditorium">Shradha Auditorium</option>
+                            </select>
+                        </div>
+
+                        <div class="sim-checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="wheelchairCheck">
+                                <span>♿ Prioritize Wheelchair / Ramp Route</span>
+                            </label>
+                        </div>
+
+                        <button id="calculateRouteBtn" class="btn btn-primary btn-block">
+                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                            </svg>
+                            Calculate Optimal Path
+                        </button>
+
+                        <div class="route-result-box" id="routeResultBox">
+                            <div class="route-stat-row">
+                                <div>
+                                    <span class="stat-label">Estimated Distance</span>
+                                    <strong class="stat-val" id="routeDistVal">180 meters</strong>
+                                </div>
+                                <div>
+                                    <span class="stat-label">Walking Time</span>
+                                    <strong class="stat-val" id="routeTimeVal">~ 2.5 mins</strong>
+                                </div>
+                            </div>
+                            <div class="step-guide-box" id="stepGuideBox">
+                                <div class="step-line"><span class="step-badge">1</span> Exit CSE Block B via Corridor West</div>
+                                <div class="step-line"><span class="step-badge">2</span> Walk along Main Courtyard Walkway (120m)</div>
+                                <div class="step-line"><span class="step-badge">3</span> Arrive at Central Library Ground Entrance</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simulator Map Canvas View -->
+                    <div class="sim-map-card">
+                        <div class="map-toolbar">
+                            <span class="map-title-text">GHRCE Campus Digital Map (Simulated Canvas)</span>
+                            <div class="map-legend">
+                                <span class="legend-item"><span class="legend-dot start-dot"></span> Origin</span>
+                                <span class="legend-item"><span class="legend-dot dest-dot"></span> Destination</span>
+                                <span class="legend-item"><span class="legend-dot path-dot"></span> Shortest Path</span>
+                            </div>
+                        </div>
+
+                        <div class="canvas-map-wrapper">
+                            <svg id="campusMapSvg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
+                                <!-- Background Campus Lawn -->
+                                <rect x="10" y="10" width="580" height="380" rx="12" fill="var(--canvas-bg)" stroke="var(--border-color)" stroke-width="2"/>
+
+                                <!-- Campus Grid Lines -->
+                                <line x1="10" y1="100" x2="590" y2="100" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="10" y1="200" x2="590" y2="200" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="10" y1="300" x2="590" y2="300" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="150" y1="10" x2="150" y2="390" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="300" y1="10" x2="300" y2="390" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="450" y1="10" x2="450" y2="390" stroke="var(--grid-line)" stroke-dasharray="4"/>
+
+                                <!-- Walkway Corridors -->
+                                <path d="M 60,340 L 160,340 L 160,200 L 300,200 L 300,100 L 460,100 L 460,220 L 460,320 L 300,320 L 160,320" 
+                                      fill="none" stroke="var(--walkway-color)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+                                <!-- Campus Buildings -->
+                                <!-- 1. Gate -->
+                                <g id="bldg-gate" class="map-bldg" transform="translate(30, 310)">
+                                    <rect width="70" height="55" rx="6" fill="#475569" stroke="#334155" stroke-width="2"/>
+                                    <text x="35" y="32" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Main Gate</text>
+                                </g>
+
+                                <!-- 2. Admin Block -->
+                                <g id="bldg-admin" class="map-bldg" transform="translate(120, 60)">
+                                    <rect width="90" height="65" rx="6" fill="#1e3a8a" stroke="#1d4ed8" stroke-width="2"/>
+                                    <text x="45" y="32" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Admin Wing</text>
+                                    <text x="45" y="48" fill="#93c5fd" font-size="9" text-anchor="middle">Deans / Offices</text>
+                                </g>
+
+                                <!-- 3. CSE Block -->
+                                <g id="bldg-cse" class="map-bldg" transform="translate(260, 40)">
+                                    <rect width="95" height="75" rx="6" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+                                    <text x="47" y="36" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">CSE Block</text>
+                                    <text x="47" y="54" fill="#bae6fd" font-size="9" text-anchor="middle">Labs & Classes</text>
+                                </g>
+
+                                <!-- 4. Central Library -->
+                                <g id="bldg-library" class="map-bldg" transform="translate(420, 60)">
+                                    <rect width="95" height="70" rx="6" fill="#0d9488" stroke="#0f766e" stroke-width="2"/>
+                                    <text x="47" y="35" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Central Library</text>
+                                    <text x="47" y="52" fill="#99f6e4" font-size="9" text-anchor="middle">Reading Halls</text>
+                                </g>
+
+                                <!-- 5. Cafeteria -->
+                                <g id="bldg-canteen" class="map-bldg" transform="translate(420, 270)">
+                                    <rect width="95" height="65" rx="6" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+                                    <text x="47" y="34" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Cafeteria</text>
+                                    <text x="47" y="50" fill="#fed7aa" font-size="9" text-anchor="middle">Food Court</text>
+                                </g>
+
+                                <!-- 6. Auditorium -->
+                                <g id="bldg-auditorium" class="map-bldg" transform="translate(130, 260)">
+                                    <rect width="100" height="70" rx="6" fill="#7c3aed" stroke="#6d28d9" stroke-width="2"/>
+                                    <text x="50" y="35" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Auditorium</text>
+                                    <text x="50" y="52" fill="#ddd6fe" font-size="9" text-anchor="middle">Shradha Hall</text>
+                                </g>
+
+                                <!-- Central Garden -->
+                                <rect x="250" y="190" width="110" height="90" rx="10" fill="#15803d" opacity="0.2" stroke="#16a34a" stroke-width="1.5"/>
+                                <text x="305" y="240" fill="#166534" font-size="11" font-weight="bold" text-anchor="middle">Campus Garden</text>
+
+                                <!-- Dynamic Calculated Path (Drawn via JS) -->
+                                <path id="dynamicRoutePath" d="M 307,115 L 307,100 L 460,100 L 460,130" 
+                                      fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 4" class="animated-path"/>
+
+                                <!-- Start and End Markers -->
+                                <circle id="startMarkerCircle" cx="307" cy="115" r="9" fill="#10b981" stroke="#ffffff" stroke-width="3"/>
+                                <circle id="endMarkerCircle" cx="460" cy="130" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TECH STACK (HARDWARE & SOFTWARE SPECIFICATIONS) -->
+        <section id="techstack" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 06</span>
+                    <h2 class="section-title">Hardware & Software Specifications</h2>
+                    <p class="section-desc">Technical stack, development environments, frameworks, and deployment specifications.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="specs-grid">
+                    <!-- Software Specifications Table -->
+                    <div class="spec-card">
+                        <div class="spec-card-header">
+                            <div class="spec-header-icon">💻</div>
+                            <h3>Software Specifications</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="styled-table">
+                                <thead>
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Technology / Specification</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Operating System</strong></td>
+                                        <td>Windows 10 / 11 (64-bit), Android 10+ (for mobile clients)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Frontend Architecture</strong></td>
+                                        <td>HTML5, Advanced Vanilla CSS3, JavaScript (ES6+) / React.js</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Backend Server</strong></td>
+                                        <td>Node.js runtime environment with Express.js REST Framework</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Database Management</strong></td>
+                                        <td>MongoDB (NoSQL Document Store) / MySQL (Relational GIS)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Core Programming Language</strong></td>
+                                        <td>JavaScript / TypeScript</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Mapping Engine & APIs</strong></td>
+                                        <td>OpenStreetMap (Leaflet.js Library) / Google Maps JavaScript API</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Integrated Development Env (IDE)</strong></td>
+                                        <td>Visual Studio Code (VS Code) with Live Server & Extensions</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Version Control System</strong></td>
+                                        <td>Git & GitHub (Repository & Release Management)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Hosting & Cloud Deployment</strong></td>
+                                        <td>Vercel / Render / Firebase Cloud Hosting</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Hardware Specifications Table -->
+                    <div class="spec-card">
+                        <div class="spec-card-header">
+                            <div class="spec-header-icon">🖥️</div>
+                            <h3>Hardware Specifications</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="styled-table">
+                                <thead>
+                                    <tr>
+                                        <th>Hardware Resource</th>
+                                        <th>Minimum Requirement</th>
+                                        <th>Recommended Standard</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Processor (CPU)</strong></td>
+                                        <td>Intel Core i3 (7th Gen) / AMD Ryzen 3</td>
+                                        <td>Intel Core i5/i7 (11th Gen+) / Apple M-Series</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>System Memory (RAM)</strong></td>
+                                        <td>4 GB DDR4</td>
+                                        <td>8 GB / 16 GB DDR4/DDR5</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Storage Capacity</strong></td>
+                                        <td>128 GB HDD/SSD</td>
+                                        <td>256 GB NVMe SSD with 20 GB free space</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Client Mobile Device</strong></td>
+                                        <td>Smartphone with GPS, Wi-Fi 802.11ac</td>
+                                        <td>Smartphone with Compass, Gyroscope, Wi-Fi 6</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Display Resolution</strong></td>
+                                        <td>1366 &times; 768 (Laptop / PC)</td>
+                                        <td>1920 &times; 1080 (FHD IPS Display)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Network Connectivity</strong></td>
+                                        <td>Stable 4G / Campus Wi-Fi (5 Mbps)</td>
+                                        <td>High-Speed 5G / Broadband Wi-Fi (50+ Mbps)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Architecture Badges -->
+                        <div class="stack-badges-wrap">
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">Express.js</span>
+                            <span class="tech-pill">Leaflet.js</span>
+                            <span class="tech-pill">MongoDB</span>
+                            <span class="tech-pill">JavaScript ES6</span>
+                            <span class="tech-pill">Git / GitHub</span>
+                            <span class="tech-pill">Vercel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. LITERATURE SURVEY -->
+        <section id="literature" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 07</span>
+                    <h2 class="section-title">Literature Survey</h2>
+                    <p class="section-desc">Comprehensive comparative review of 10 seminal peer-reviewed research papers on smart campus navigation, indoor GIS, and localization techniques.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="literature-controls">
+                    <div class="search-input-box lit-search">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="litSearchInput" placeholder="Search literature survey by author, year, technique..." aria-label="Search literature survey">
+                    </div>
+                    <span class="lit-count" id="litCountText">Showing 10 Research Papers</span>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="styled-table lit-table" id="literatureTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 70px;">Sr. No.</th>
+                                    <th style="width: 90px;">Year</th>
+                                    <th style="width: 280px;">Authors</th>
+                                    <th>Observation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center font-bold">1</td>
+                                    <td><span class="year-badge">2026</span></td>
+                                    <td><strong>Pranali R. Lambe, Kiran V. Patil, Madhura P. Patil, Shravani V. Patil</strong></td>
+                                    <td>Developed a Flutter-based campus navigation system integrating GPS, Open Route Service API, Firebase, and Dijkstra's algorithm for seamless indoor and outdoor navigation.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">2</td>
+                                    <td><span class="year-badge">2025</span></td>
+                                    <td><strong>Shraddha Patil, Radhika Kachare, Krutika Kamble, Tanvi R Patil, Siddheshwar V. Patil</strong></td>
+                                    <td>Designed an AR-based indoor navigation system using Unity and AR Core that provides real-time directional guidance and reduces navigation time inside campuses.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">3</td>
+                                    <td><span class="year-badge">2025</span></td>
+                                    <td><strong>Amogha R. S., Adiveppa K., Amruta G. Yaragatti, Gurubai Mathapati, Dhanashree Kulkarni, Vilas Jarali</strong></td>
+                                    <td>Proposed a graph-based indoor campus navigation app using Dijkstra's algorithm to generate the shortest path across multi-floor campus buildings.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">4</td>
+                                    <td><span class="year-badge">2025</span></td>
+                                    <td><strong>Neelakantappa B.B., Madhura S., Meghana C. L., Mandara H. P.</strong></td>
+                                    <td>Introduced an intelligent campus navigation system integrating GPS, AI, voice guidance, and accessibility features for improved user experience and operational efficiency.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">5</td>
+                                    <td><span class="year-badge">2025</span></td>
+                                    <td><strong>Priya Gupta, Vibha Patel</strong></td>
+                                    <td>Proposed an IoT-based smart campus navigation system using GPS, QR codes, RFID, and mobile applications to improve campus navigation and intelligent administration.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">6</td>
+                                    <td><span class="year-badge">2025</span></td>
+                                    <td><strong>Dr. Nasreen Fathima, Manoikumar M J, Prashanth, Pavan B D, Akash Gowda A T</strong></td>
+                                    <td>Proposed a web-based augmented reality campus navigation system that helps users locate places easily. Uses BFS and graph-based routing for shortest path calculation with real-time AR guidance through arrows and labels. Lightweight, platform-independent, requires no app installation.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">7</td>
+                                    <td><span class="year-badge">2023</span></td>
+                                    <td><strong>Prof. D. B. Parse, Sadiya Bagwan, Sheetal Akashe, Shweta Hippargi, Vaishnavi Halkude</strong></td>
+                                    <td>Proposed a campus navigation application using GPS, Wi-Fi positioning, and Augmented Reality (AR) to simplify navigation for students and visitors.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">8</td>
+                                    <td><span class="year-badge">2023</span></td>
+                                    <td><strong>Naik Amisha, Nese Likhita, Sharma Anupama, Tripathi Richa, Swapna Patil</strong></td>
+                                    <td>Developed a smart campus navigation system using IoT, GPS, Google Maps API, and RFID to assist students and visitors with indoor and outdoor navigation.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">9</td>
+                                    <td><span class="year-badge">2021</span></td>
+                                    <td><strong>Shrushti N, Megha N, Sunitha J, Shivani Kumari, Prof. Anjini L</strong></td>
+                                    <td>Proposes an AR-based indoor campus navigation system that helps new students/visitors locate classrooms, departments, and buildings using holographic arrows, with distance and time estimation.</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center font-bold">10</td>
+                                    <td><span class="year-badge">2017</span></td>
+                                    <td><strong>Thube Chetana G., Shirsat Yakshkalyani, Kalambe Rupali, Nawale Yogita</strong></td>
+                                    <td>Proposes an Android-based campus navigation system using GPS and QR codes, with event updates and shortest path navigation. QR codes used for indoor positioning where GPS fails.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. CONCLUSION & FUTURE SCOPE -->
+        <section id="conclusion" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 08</span>
+                    <h2 class="section-title">Conclusion & Future Scope</h2>
+                    <p class="section-desc">Summary of project outcomes, practical institutional impact, and prospective technology extensions.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="conclusion-grid">
+                    <!-- Conclusion Card -->
+                    <div class="conc-card main-conclusion">
+                        <div class="conc-header">
+                            <div class="conc-icon">🎓</div>
+                            <h3>Project Conclusion</h3>
+                        </div>
+                        <p>
+                            The <strong>Smart Campus Navigation System</strong> is a modern, efficient, and user-centric solution designed to simplify navigation within educational institutions. By transitioning traditional static maps into an interactive, high-performance digital ecosystem, the platform resolves the persistent challenge of campus wayfinding for students, faculty, evaluation committees, and visitors alike.
+                        </p>
+                        <p>
+                            The system successfully achieves its primary objectives: eliminating directional confusion, optimizing transit time through algorithmic shortest path calculation, delivering rich information about campus facilities, and upholding accessibility standards. Built with a responsive, modern web framework, the system is lightweight, scalable, and readily maintainable by the college administration.
+                        </p>
+                    </div>
+
+                    <!-- Future Scope Card -->
+                    <div class="conc-card future-scope">
+                        <div class="conc-header">
+                            <div class="conc-icon icon-future">🚀</div>
+                            <h3>Future Enhancements & Research Scope</h3>
+                        </div>
+                        <div class="future-items-list">
+                            <div class="future-item">
+                                <div class="f-icon">👓</div>
+                                <div>
+                                    <strong>Augmented Reality (AR) Navigation:</strong>
+                                    <span>Overlaying live directional virtual arrows directly onto the smartphone camera feed for realistic corridor navigation.</span>
+                                </div>
+                            </div>
+                            <div class="future-item">
+                                <div class="f-icon">🎙️</div>
+                                <div>
+                                    <strong>Voice-Guided Multi-Lingual Assistant:</strong>
+                                    <span>Integrating conversational AI and speech recognition in English, Hindi, and Marathi for voice-directed navigation.</span>
+                                </div>
+                            </div>
+                            <div class="future-item">
+                                <div class="f-icon">🤖</div>
+                                <div>
+                                    <strong>AI Predictive Crowd & Parking Analytics:</strong>
+                                    <span>Using machine learning to forecast cafeteria queue lengths, parking spot availability, and library seat occupancy in real-time.</span>
+                                </div>
+                            </div>
+                            <div class="future-item">
+                                <div class="f-icon">📡</div>
+                                <div>
+                                    <strong>IoT Beacon & Ultra-Wideband (UWB) Integration:</strong>
+                                    <span>Deploying low-power UWB sensors for centimeter-precise indoor localization inside multi-story laboratory complexes.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. REFERENCES -->
+        <section id="references" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Section 09</span>
+                    <h2 class="section-title">References</h2>
+                    <p class="section-desc">Formal academic citations in standard IEEE bibliographic format.</p>
+                    <div class="title-bar"></div>
+                </div>
+
+                <div class="references-card">
+                    <ol class="ieee-ref-list">
+                        <li>
+                            <span class="ref-num">[1]</span>
+                            <span class="ref-content">P. Gupta and V. Patel, "Smart Campus Navigation: An IoT-Based Approach for Intelligent Administration," <em>International Journal of Scientific and Applied Research and Technology (IJSART)</em>, vol. 11, no. 3, pp. 460–463, Mar. 2025.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[2]</span>
+                            <span class="ref-content">A. Naik, L. Nese, A. Sharma, R. Tripathi, and S. Patil, "Smart Campus Navigation System," <em>International Journal of Creative Research Thoughts (IJCRT)</em>, vol. 11, no. 1, Jan. 2023.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[3]</span>
+                            <span class="ref-content">N. B. B. Neelakantappa, M. S. Madhura, M. C. L. Meghana, and M. H. P. Mandara, "Smart Campus Navigation System," <em>International Journal of Innovative Research in Technology (IJIRT)</em>, vol. 11, no. 12, May 2025.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[4]</span>
+                            <span class="ref-content">D. B. Parse, S. Bagwan, S. Akashe, S. Hippargi, and V. Halkude, "Campus Navigation System," <em>International Journal of Research and Analytical Reviews (IJRAR)</em>, vol. 10, no. 4, Dec. 2023.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[5]</span>
+                            <span class="ref-content">N. B. B. Neelakantappa, M. S. Madhura, M. C. L. Meghana, and M. H. P. Mandara, "Smart Campus Navigation System," <em>International Journal for Multidisciplinary Research (IJFMR)</em>, vol. 7, no. 1, Jan.–Feb. 2025.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[6]</span>
+                            <span class="ref-content">S. Patil, R. Kachare, K. Kamble, T. R. Patil, and S. V. Patil, "Smart Campus Navigation: Leveraging Augmented Reality for Seamless Wayfinding at DYPCET," <em>International Research Journal of Engineering and Technology (IRJET)</em>, vol. 12, no. 12, Jan. 2025.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[7]</span>
+                            <span class="ref-content">A. R. S. Amogha, A. K., A. G. Yaragatti, G. Mathapati, D. Kulkarni, and V. Jarali, "Smart Campus Navigation App," <em>International Journal of Research Publication and Reviews (IJRPR)</em>, vol. 6, no. 12, pp. 4851–4855, Dec. 2025.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[8]</span>
+                            <span class="ref-content">P. R. Lambe, K. V. Patil, M. P. Patil, and S. V. Patil, "Campus Navigator: Smart Campus Navigation System," <em>International Journal of Novel Research and Development (IJNRD)</em>, vol. 11, no. 4, Apr. 2026.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[9]</span>
+                            <span class="ref-content">S. N., M. N., S. J., S. Kumari, and A. L., "Campus AR Navigation System," <em>International Research Journal of Engineering and Technology (IRJET)</em>, vol. 8, no. 7, pp. 1703–1707, Jul. 2021.</span>
+                        </li>
+                        <li>
+                            <span class="ref-num">[10]</span>
+                            <span class="ref-content">N. Fathima, M. M. J, Prashanth, P. B. D., and A. G. A. T., "College Campus Navigator," <em>International Journal of Engineering Development and Research (IJEDR)</em>, vol. 13, no. 4, pp. 286–294, Dec. 2025, Paper ID: IJEDR2504668.</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>Smart Campus Navigation System</h4>
+                    <p>Department of Computer Science and Engineering</p>
+                    <p class="footer-inst">G H Raisoni College of Engineering, Nagpur</p>
+                    <p class="footer-subtext">Session 2026-2027 (Winter 2026) &bull; Minor Project Group 06</p>
+                </div>
+                <div class="footer-members">
+                    <h5>Project Team</h5>
+                    <p>Riya Bhele (B-08)</p>
+                    <p>Shifa Sheikh (B-15)</p>
+                    <p>Shreya Thakare (B-19)</p>
+                </div>
+                <div class="footer-guide">
+                    <h5>Project Guide</h5>
+                    <p>Prof. Apeksha Sakhare</p>
+                    <p class="text-muted">Assistant Professor, CSE</p>
+                    <p class="text-muted">GHRCE Nagpur</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Department of Computer Science & Engineering, GHRCE Nagpur. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#home">Back to Top &uarr;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Floating Button -->
+    <button id="backToTopBtn" class="back-to-top" title="Back to top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
