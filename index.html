@@ -55,7 +55,7 @@
                 <a href="#problem-gap" class="nav-link">Problem</a>
                 <a href="#methodology" class="nav-link">Methodology</a>
                 <a href="#modules" class="nav-link">Modules</a>
-                <a href="#demo-preview" class="nav-link nav-item-optional">Demo</a>
+                <a href="#demo-preview" class="nav-link nav-item-optional">CSE Map</a>
                 <a href="#techstack" class="nav-link nav-item-optional">Tech Stack</a>
                 <a href="#literature" class="nav-link">Literature</a>
                 <a href="#conclusion" class="nav-link">Conclusion</a>
@@ -70,7 +70,7 @@
                         </svg>
                     </button>
                     <div class="nav-dropdown-menu" id="navDropdownMenu">
-                        <a href="#demo-preview" class="dropdown-item">Demo Simulator</a>
+                        <a href="#demo-preview" class="dropdown-item">CSE Map</a>
                         <a href="#techstack" class="dropdown-item">Tech Stack</a>
                         <a href="#references" class="dropdown-item">References</a>
                     </div>
@@ -878,159 +878,242 @@
             </div>
         </section>
 
-        <!-- INTERACTIVE MOCKUP SECTION (DEMO / SIMULATION) -->
+        <!-- CSE DEPARTMENT NAVIGATION MAP (INTERACTIVE MOCKUP) -->
         <section id="demo-preview" class="section bg-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-subtitle">Demonstration</span>
-                    <h2 class="section-title">Interactive Campus Route Simulator</h2>
-                    <p class="section-desc">Test simulated smart route calculations between representative buildings at GHRCE Nagpur.</p>
+                    <span class="section-subtitle">Department Navigation</span>
+                    <h2 class="section-title">CSE Department Navigation Map</h2>
+                    <p class="section-desc">Schematic map, not to scale. Starting point: Main Gate.</p>
                     <div class="title-bar"></div>
                 </div>
 
                 <div class="simulator-wrapper">
-                    <!-- Simulator Controls -->
-                    <div class="sim-controls-card">
-                        <h4 class="sim-title">Select Origin & Destination</h4>
-                        <div class="sim-form-group">
-                            <label for="startNodeSelect"><strong>Start Location (From):</strong></label>
-                            <select id="startNodeSelect" class="form-select">
-                                <option value="gate">Main Campus Entrance (Gate 1)</option>
-                                <option value="admin">Admin & Dean Office Block</option>
-                                <option value="cse" selected>CSE Department (Block B)</option>
-                                <option value="library">Central Library & Reading Hall</option>
-                                <option value="canteen">Campus Cafeteria & Food Court</option>
-                                <option value="auditorium">Shradha Auditorium</option>
-                            </select>
-                        </div>
-
-                        <div class="sim-form-group">
-                            <label for="endNodeSelect"><strong>Destination (To):</strong></label>
-                            <select id="endNodeSelect" class="form-select">
-                                <option value="gate">Main Campus Entrance (Gate 1)</option>
-                                <option value="admin">Admin & Dean Office Block</option>
-                                <option value="cse">CSE Department (Block B)</option>
-                                <option value="library" selected>Central Library & Reading Hall</option>
-                                <option value="canteen">Campus Cafeteria & Food Court</option>
-                                <option value="auditorium">Shradha Auditorium</option>
-                            </select>
-                        </div>
-
-                        <div class="sim-checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="wheelchairCheck">
-                                <span>♿ Prioritize Wheelchair / Ramp Route</span>
-                            </label>
-                        </div>
-
-                        <button id="calculateRouteBtn" class="btn btn-primary btn-block">
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-                            </svg>
-                            Calculate Optimal Path
-                        </button>
-
-                        <div class="route-result-box" id="routeResultBox">
-                            <div class="route-stat-row">
-                                <div>
-                                    <span class="stat-label">Estimated Distance</span>
-                                    <strong class="stat-val" id="routeDistVal">180 meters</strong>
-                                </div>
-                                <div>
-                                    <span class="stat-label">Walking Time</span>
-                                    <strong class="stat-val" id="routeTimeVal">~ 2.5 mins</strong>
-                                </div>
-                            </div>
-                            <div class="step-guide-box" id="stepGuideBox">
-                                <div class="step-line"><span class="step-badge">1</span> Exit CSE Block B via Corridor West</div>
-                                <div class="step-line"><span class="step-badge">2</span> Walk along Main Courtyard Walkway (120m)</div>
-                                <div class="step-line"><span class="step-badge">3</span> Arrive at Central Library Ground Entrance</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Simulator Map Canvas View -->
+                    <!-- Map & Route Controls Column -->
                     <div class="sim-map-card">
+                        <!-- Route Control Bar -->
+                        <div class="sim-route-bar">
+                            <div class="route-field">
+                                <label for="startNodeSelect"><strong>From:</strong></label>
+                                <select id="startNodeSelect" class="form-select select-compact">
+                                    <option value="gate" selected>Main Gate</option>
+                                    <option value="b01">B-01 Project Laboratory</option>
+                                    <option value="b02">B-02 Networks &amp; Information Security Lab</option>
+                                    <option value="b03">B-03 CCC (Centralised Computer Centre)</option>
+                                    <option value="b04">B-04 Data Science Lab</option>
+                                    <option value="b05">B-05 CSE Department, HOD Cabin</option>
+                                </select>
+                            </div>
+
+                            <div class="route-field">
+                                <label for="endNodeSelect"><strong>To:</strong></label>
+                                <select id="endNodeSelect" class="form-select select-compact">
+                                    <option value="b02" selected>B-02 Networks &amp; Information Security Lab</option>
+                                    <option value="b01">B-01 Project Laboratory</option>
+                                    <option value="b03">B-03 CCC (Centralised Computer Centre)</option>
+                                    <option value="b04">B-04 Data Science Lab</option>
+                                    <option value="b05">B-05 CSE Department, HOD Cabin</option>
+                                    <option value="gate">Main Gate</option>
+                                </select>
+                            </div>
+
+                            <div class="route-btn-col">
+                                <button id="calculateRouteBtn" class="btn btn-primary btn-sm">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                    </svg>
+                                    <span>Show Route</span>
+                                </button>
+                            </div>
+                        </div>
+
                         <div class="map-toolbar">
-                            <span class="map-title-text">GHRCE Campus Digital Map (Simulated Canvas)</span>
+                            <div class="map-hint">
+                                <span class="badge-hint">Interactive:</span> Click any room on the floor plan to set destination
+                            </div>
                             <div class="map-legend">
-                                <span class="legend-item"><span class="legend-dot start-dot"></span> Origin</span>
+                                <span class="legend-item"><span class="legend-dot start-dot"></span> Start Marker</span>
                                 <span class="legend-item"><span class="legend-dot dest-dot"></span> Destination</span>
-                                <span class="legend-item"><span class="legend-dot path-dot"></span> Shortest Path</span>
+                                <span class="legend-item"><span class="legend-dot path-dot"></span> Active Route</span>
                             </div>
                         </div>
 
                         <div class="canvas-map-wrapper">
-                            <svg id="campusMapSvg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet">
-                                <!-- Background Campus Lawn -->
-                                <rect x="10" y="10" width="580" height="380" rx="12" fill="var(--canvas-bg)" stroke="var(--border-color)" stroke-width="2"/>
+                            <svg id="campusMapSvg" viewBox="0 0 760 560" preserveAspectRatio="xMidYMid meet">
+                                <!-- Background Floor Outline -->
+                                <rect x="10" y="10" width="740" height="540" rx="14" fill="var(--canvas-bg)" stroke="var(--border-color)" stroke-width="2"/>
 
-                                <!-- Campus Grid Lines -->
-                                <line x1="10" y1="100" x2="590" y2="100" stroke="var(--grid-line)" stroke-dasharray="4"/>
-                                <line x1="10" y1="200" x2="590" y2="200" stroke="var(--grid-line)" stroke-dasharray="4"/>
-                                <line x1="10" y1="300" x2="590" y2="300" stroke="var(--grid-line)" stroke-dasharray="4"/>
-                                <line x1="150" y1="10" x2="150" y2="390" stroke="var(--grid-line)" stroke-dasharray="4"/>
-                                <line x1="300" y1="10" x2="300" y2="390" stroke="var(--grid-line)" stroke-dasharray="4"/>
-                                <line x1="450" y1="10" x2="450" y2="390" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <!-- Floor Grid Lines -->
+                                <line x1="10" y1="175" x2="750" y2="175" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="10" y1="360" x2="750" y2="360" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="10" y1="440" x2="750" y2="440" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="290" y1="10" x2="290" y2="550" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="420" y1="10" x2="420" y2="550" stroke="var(--grid-line)" stroke-dasharray="4"/>
+                                <line x1="560" y1="10" x2="560" y2="550" stroke="var(--grid-line)" stroke-dasharray="4"/>
 
-                                <!-- Walkway Corridors -->
-                                <path d="M 60,340 L 160,340 L 160,200 L 300,200 L 300,100 L 460,100 L 460,220 L 460,320 L 300,320 L 160,320" 
-                                      fill="none" stroke="var(--walkway-color)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                                <!-- Central Courtyard / Loop Inner Zone -->
+                                <rect x="315" y="200" width="220" height="135" rx="8" fill="var(--primary-soft)" stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                                <text x="425" y="260" text-anchor="middle" fill="var(--text-muted)" font-size="11.5" font-weight="700">CSE DEPARTMENT</text>
+                                <text x="425" y="278" text-anchor="middle" fill="var(--text-subtle)" font-size="9.5">Ground Floor Walkway Loop</text>
 
-                                <!-- Campus Buildings -->
-                                <!-- 1. Gate -->
-                                <g id="bldg-gate" class="map-bldg" transform="translate(30, 310)">
-                                    <rect width="70" height="55" rx="6" fill="#475569" stroke="#334155" stroke-width="2"/>
-                                    <text x="35" y="32" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Main Gate</text>
-                                </g>
+                                <!-- Base Walkway Corridors (Thick Lines) -->
+                                <!-- 1. Path from Main Gate up to Department Entrance -->
+                                <path d="M 380,475 L 280,430 L 420,430 L 420,360"
+                                      fill="none" stroke="var(--walkway-color)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                
+                                <!-- 2. Rectangular Walkway Loop & West Corridor Extension -->
+                                <path d="M 80,175 L 560,175 L 560,360 L 290,360 L 290,175"
+                                      fill="none" stroke="var(--walkway-color)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
 
-                                <!-- 2. Admin Block -->
-                                <g id="bldg-admin" class="map-bldg" transform="translate(120, 60)">
-                                    <rect width="90" height="65" rx="6" fill="#1e3a8a" stroke="#1d4ed8" stroke-width="2"/>
-                                    <text x="45" y="32" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Admin Wing</text>
-                                    <text x="45" y="48" fill="#93c5fd" font-size="9" text-anchor="middle">Deans / Offices</text>
-                                </g>
+                                <!-- 3. Room Doorway Connector Stubs -->
+                                <path d="M 100,175 L 100,150 M 270,175 L 270,150 M 490,175 L 490,150 M 290,275 L 265,275 M 560,275 L 585,275"
+                                      fill="none" stroke="var(--walkway-color)" stroke-width="10" stroke-linecap="round"/>
 
-                                <!-- 3. CSE Block -->
-                                <g id="bldg-cse" class="map-bldg" transform="translate(260, 40)">
-                                    <rect width="95" height="75" rx="6" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
-                                    <text x="47" y="36" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">CSE Block</text>
-                                    <text x="47" y="54" fill="#bae6fd" font-size="9" text-anchor="middle">Labs & Classes</text>
-                                </g>
+                                <!-- Ground Floor Path Labels and Directional Hints -->
+                                <text x="432" y="405" fill="var(--text-muted)" font-size="9.5" font-weight="600" letter-spacing="0.5">Ground Floor Path</text>
+                                <polygon points="420,378 415,388 425,388" fill="var(--text-subtle)"/>
 
-                                <!-- 4. Central Library -->
-                                <g id="bldg-library" class="map-bldg" transform="translate(420, 60)">
-                                    <rect width="95" height="70" rx="6" fill="#0d9488" stroke="#0f766e" stroke-width="2"/>
-                                    <text x="47" y="35" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Central Library</text>
-                                    <text x="47" y="52" fill="#99f6e4" font-size="9" text-anchor="middle">Reading Halls</text>
-                                </g>
+                                <text x="185" y="195" text-anchor="middle" fill="var(--text-subtle)" font-size="9">← Corridor to Labs</text>
 
-                                <!-- 5. Cafeteria -->
-                                <g id="bldg-canteen" class="map-bldg" transform="translate(420, 270)">
-                                    <rect width="95" height="65" rx="6" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
-                                    <text x="47" y="34" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Cafeteria</text>
-                                    <text x="47" y="50" fill="#fed7aa" font-size="9" text-anchor="middle">Food Court</text>
-                                </g>
-
-                                <!-- 6. Auditorium -->
-                                <g id="bldg-auditorium" class="map-bldg" transform="translate(130, 260)">
-                                    <rect width="100" height="70" rx="6" fill="#7c3aed" stroke="#6d28d9" stroke-width="2"/>
-                                    <text x="50" y="35" fill="#ffffff" font-size="11" font-weight="bold" text-anchor="middle">Auditorium</text>
-                                    <text x="50" y="52" fill="#ddd6fe" font-size="9" text-anchor="middle">Shradha Hall</text>
-                                </g>
-
-                                <!-- Central Garden -->
-                                <rect x="250" y="190" width="110" height="90" rx="10" fill="#15803d" opacity="0.2" stroke="#16a34a" stroke-width="1.5"/>
-                                <text x="305" y="240" fill="#166534" font-size="11" font-weight="bold" text-anchor="middle">Campus Garden</text>
-
-                                <!-- Dynamic Calculated Path (Drawn via JS) -->
-                                <path id="dynamicRoutePath" d="M 307,115 L 307,100 L 460,100 L 460,130" 
-                                      fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 4" class="animated-path"/>
+                                <!-- Dynamic Calculated Animated Path -->
+                                <path id="dynamicRoutePath" d="M 380,475 L 280,430 L 420,430 L 420,360 L 560,360 L 560,275 L 585,275" 
+                                      fill="none" stroke="#e11d48" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 4" class="animated-path"/>
 
                                 <!-- Start and End Markers -->
-                                <circle id="startMarkerCircle" cx="307" cy="115" r="9" fill="#10b981" stroke="#ffffff" stroke-width="3"/>
-                                <circle id="endMarkerCircle" cx="460" cy="130" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+                                <circle id="startMarkerCircle" cx="380" cy="475" r="9" fill="#059669" stroke="#ffffff" stroke-width="3"/>
+                                <circle id="endMarkerCircle" cx="585" cy="275" r="9" fill="#e11d48" stroke="#ffffff" stroke-width="3"/>
+
+                                <!-- ROOMS (Labeled Rounded Rectangles from Sketch) -->
+                                <!-- 1. Main Gate (Start Location at Bottom) -->
+                                <g id="bldg-gate" class="map-bldg map-room" data-node="gate" transform="translate(315, 475)">
+                                    <rect width="130" height="52" rx="8" fill="#334155" stroke="#475569" stroke-width="2"/>
+                                    <text x="65" y="24" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Main Gate</text>
+                                    <text x="65" y="40" fill="#cbd5e1" font-size="9" text-anchor="middle">Start Point</text>
+                                </g>
+
+                                <!-- 2. B-01 Project Laboratory (Corridor End, Right Side) -->
+                                <g id="bldg-b01" class="map-bldg map-room" data-node="b01" transform="translate(30, 55)">
+                                    <rect width="145" height="95" rx="8" fill="#1e3a8a" stroke="#2563eb" stroke-width="2"/>
+                                    <text x="72" y="32" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">B-01</text>
+                                    <text x="72" y="52" fill="#93c5fd" font-size="10.5" font-weight="600" text-anchor="middle">Project Laboratory</text>
+                                    <text x="72" y="70" fill="#bfdbfe" font-size="8.5" text-anchor="middle">Dr. Apeksha V. Sakhare</text>
+                                    <rect x="18" y="78" width="109" height="12" rx="3" fill="#1e40af" opacity="0.6"/>
+                                    <text x="72" y="87" fill="#dbeafe" font-size="8" text-anchor="middle">Right-hand side</text>
+                                </g>
+
+                                <!-- 3. B-04 Data Science Lab (Corridor Walking Left, Left Side) -->
+                                <g id="bldg-b04" class="map-bldg map-room" data-node="b04" transform="translate(195, 55)">
+                                    <rect width="155" height="95" rx="8" fill="#0e7490" stroke="#0891b2" stroke-width="2"/>
+                                    <text x="77" y="32" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">B-04</text>
+                                    <text x="77" y="50" fill="#a5f3fc" font-size="10.5" font-weight="600" text-anchor="middle">Data Science Lab</text>
+                                    <text x="77" y="66" fill="#cffafe" font-size="8.5" text-anchor="middle">CoE in Data Science</text>
+                                    <text x="77" y="82" fill="#67e8f9" font-size="8.5" text-anchor="middle">Dr. Aditya N. Turankar</text>
+                                </g>
+
+                                <!-- 4. B-03 CCC (Centralised Computer Centre - Top Edge Right) -->
+                                <g id="bldg-b03" class="map-bldg map-room" data-node="b03" transform="translate(410, 55)">
+                                    <rect width="165" height="95" rx="8" fill="#4338ca" stroke="#4f46e5" stroke-width="2"/>
+                                    <text x="82" y="30" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">B-03 CCC</text>
+                                    <text x="82" y="48" fill="#e0e7ff" font-size="10" font-weight="600" text-anchor="middle">Centralised Computer</text>
+                                    <text x="82" y="62" fill="#e0e7ff" font-size="10" font-weight="600" text-anchor="middle">Centre</text>
+                                    <text x="82" y="82" fill="#a5b4fc" font-size="8.5" text-anchor="middle">Dr. Girish R. Talmale</text>
+                                </g>
+
+                                <!-- 5. B-05 CSE Department, HOD Cabin (Left Walkway of Rectangle) -->
+                                <g id="bldg-b05" class="map-bldg map-room" data-node="b05" transform="translate(130, 220)">
+                                    <rect width="135" height="110" rx="8" fill="#0f766e" stroke="#0d9488" stroke-width="2"/>
+                                    <text x="67" y="32" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">B-05</text>
+                                    <text x="67" y="52" fill="#99f6e4" font-size="10.5" font-weight="600" text-anchor="middle">CSE Department</text>
+                                    <text x="67" y="70" fill="#ccfbf1" font-size="10" text-anchor="middle">HOD Cabin</text>
+                                    <text x="67" y="90" fill="#5eead4" font-size="8.5" text-anchor="middle">Department Head Office</text>
+                                </g>
+
+                                <!-- 6. B-02 Networks & Information Security Lab (Right Walkway of Rectangle) -->
+                                <g id="bldg-b02" class="map-bldg map-room" data-node="b02" transform="translate(585, 220)">
+                                    <rect width="155" height="110" rx="8" fill="#c2410c" stroke="#ea580c" stroke-width="2"/>
+                                    <text x="77" y="32" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">B-02</text>
+                                    <text x="77" y="52" fill="#ffedd5" font-size="10.5" font-weight="600" text-anchor="middle">Networks &amp; Info</text>
+                                    <text x="77" y="68" fill="#ffedd5" font-size="10" font-weight="600" text-anchor="middle">Security Lab</text>
+                                    <text x="77" y="90" fill="#fed7aa" font-size="8.5" text-anchor="middle">Dr. Shruti A. Thakur</text>
+                                </g>
                             </svg>
+                        </div>
+                    </div>
+
+                    <!-- Room Detail & Step Directions Column -->
+                    <div class="sim-sidebar-col">
+                        <!-- Room Detail Card -->
+                        <div class="room-detail-card" id="roomDetailCard">
+                            <div class="room-media-header">
+                                <span class="room-media-badge" id="roomMediaBadge">Selected Destination</span>
+                                <span class="room-zoom-hint">Click photo to enlarge 🔍</span>
+                            </div>
+
+                            <!-- Single Photo Container -->
+                            <div class="room-media-wrap" id="roomSingleMediaWrap">
+                                <img id="roomDetailImg" class="room-detail-img" src="Images/B-02.jpeg" alt="B-02 Networks &amp; Information Security Lab" loading="lazy" decoding="async">
+                            </div>
+
+                            <!-- Dual Photo Gallery for B-03 (Hidden by default, shown for B-03) -->
+                            <div class="room-gallery-wrap hidden" id="roomGalleryWrap">
+                                <div class="gallery-dual-grid">
+                                    <div class="gallery-item" id="galleryItem1" tabindex="0" role="button" aria-label="View outside entrance photo">
+                                        <img id="galleryImg1" src="Images/centralized_computer_center.jpeg" alt="Centralised Computer Centre outside entrance" loading="lazy" decoding="async">
+                                        <span class="gallery-tag">Outside Entrance</span>
+                                    </div>
+                                    <div class="gallery-item" id="galleryItem2" tabindex="0" role="button" aria-label="View inside view photo">
+                                        <img id="galleryImg2" src="Images/B-03.jpeg" alt="Centralised Computer Centre inside view" loading="lazy" decoding="async">
+                                        <span class="gallery-tag">Inside View</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="room-info-body">
+                                <div class="room-header-row">
+                                    <span class="room-code-tag" id="roomCodeBadge">Room B-02</span>
+                                    <span class="room-level-tag">Ground Floor</span>
+                                </div>
+                                <h3 class="room-name" id="roomTitle">B-02 Networks &amp; Information Security Lab</h3>
+
+                                <div class="room-incharge-row" id="roomInchargeRow">
+                                    <div class="incharge-icon-wrap">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <span class="incharge-label">Lab In-charge</span>
+                                        <strong class="incharge-name" id="roomIncharge">Dr. Shruti A. Thakur (Assistant Professor)</strong>
+                                    </div>
+                                </div>
+
+                                <div class="room-caption-card">
+                                    <p class="room-caption-text" id="roomCaption">Networks &amp; Information Security Lab located on the right walkway of the CSE Department.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step-by-Step Directions Card -->
+                        <div class="directions-card">
+                            <div class="directions-header">
+                                <div class="directions-header-icon">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="directions-title">Walking Route Directions</h4>
+                                    <p class="directions-sub">Schematic route based on ground-floor layout</p>
+                                </div>
+                            </div>
+
+                            <div class="step-guide-box" id="stepGuideBox">
+                                <div class="step-line"><span class="step-badge">1</span> Start at Main Gate</div>
+                                <div class="step-line"><span class="step-badge">2</span> Walk in along the ground-floor path</div>
+                                <div class="step-line"><span class="step-badge">3</span> Enter the CSE department walkway</div>
+                                <div class="step-line"><span class="step-badge">4</span> B-02 is on your right side</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1431,6 +1514,18 @@
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
+
+    <!-- Photo Lightbox Modal -->
+    <div id="photoLightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+        <div class="lightbox-overlay" id="lightboxOverlay"></div>
+        <div class="lightbox-container">
+            <button type="button" class="lightbox-close" id="lightboxCloseBtn" aria-label="Close photo preview">&times;</button>
+            <div class="lightbox-img-wrap">
+                <img id="lightboxImg" src="" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
